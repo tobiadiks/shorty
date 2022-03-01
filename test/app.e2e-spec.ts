@@ -15,10 +15,28 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/encode (POST)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .post('/encode?link=https://google.com')
       .expect(200)
-      .expect('Hello World!');
+      
+  });
+
+  it('/decode (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/decode')
+      .expect(404)
+  });
+
+  it('/visit (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/decode')
+      .expect(302)
+  });
+
+  it('/stats (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/decode')
+      .expect(404)
   });
 });

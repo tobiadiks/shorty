@@ -12,7 +12,19 @@ describe('UrlService', () => {
     service = module.get<UrlService>(UrlService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('encode service should be defined', () => {
+    expect(service.Encode).toBeDefined();
+  });
+
+  it('decode service should be defined', () => {
+    expect(service.Decode).toBeDefined();
+  });
+
+  it('stat service should be defined', () => {
+    expect(service.Statistics).toBeDefined();
+  });
+
+  it('visit service should be defined', () => {
+    expect(service.Visit).toBeDefined();
   });
 });

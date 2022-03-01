@@ -3,23 +3,14 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export function DbConfig(): TypeOrmModuleOptions {
   return {
     type: 'postgres',
-    host:
-      process.env.NODE_ENV == `production`
-        ? `ec2-184-73-25-2.compute-1.amazonaws.com`
-        : 'localhost',
+    host:'ec2-54-172-219-6.compute-1.amazonaws.com',
     port: 5432,
-    username:
-      process.env.NODE_ENV == `production` ? `vjhxvpfqrswzkt` : 'postgres',
-    password:
-      process.env.NODE_ENV == `production`
-        ? `e1f0e2d6bdd0ed82629d7bd96994aa9baf5d308ad26e161447d2fb7bae0bdeb6`
-        : '1234',
-    database: process.env.NODE_ENV == `production` ? `df0qjgqppjpga0` : 'fpp',
+    username: 'gwotbokckzedgl',
+    password:'41772f6537a4840e07618f1f96c2b5f78328d16de149d8c5eac2f59b07084bab',
+    database: 'd42emqkemkdc71',
     synchronize: true,
     autoLoadEntities: true,
-    ssl:
-      process.env.NODE_ENV == `production`
-        ? { rejectUnauthorized: false }
-        : false,
+    ssl:{ rejectUnauthorized: false }
+        
   };
 }

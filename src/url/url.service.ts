@@ -69,7 +69,7 @@ export class UrlService {
             const urlData = await this.urlRepository.findOne(data)
             if (urlData) {
                 let currentClicks = urlData.clicks
-                await this.urlRepository.update(urlData, { clicks: currentClicks + 1 })
+                await this.urlRepository.update(urlData, { clicks: currentClicks + 1,last_visited:new Date().toLocaleString() })
                 return urlData.link
             }
             else {

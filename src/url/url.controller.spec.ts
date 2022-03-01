@@ -12,7 +12,19 @@ describe('UrlController', () => {
     controller = module.get<UrlController>(UrlController);
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  it('decode url should be defined', () => {
+    expect(controller.Decode).toBeDefined();
+  });
+
+  it('encode url should be defined', () => {
+    expect(controller.Encode).toBeDefined();
+  });
+
+  it('stat url should be defined', () => {
+    expect(controller.Statistics).toBeDefined();
+  });
+
+  it('visit url should be defined', () => {
+    expect(controller.Visit).toBeDefined();
   });
 });
