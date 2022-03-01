@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUrlDto, DecodeUrlDto, DecodeUrlResponseDto, StatsUrlResponseDto } from './dto/url.dto';
 import { Url } from './entity/url.entity';
-import { toDecodeUrlResponseDto } from './mapper/url.mapper';
+import { toDecodeUrlResponseDto, toStatUrlResponseDto } from './mapper/url.mapper';
 
 
 
@@ -44,6 +44,22 @@ export class UrlService {
         }
         else {
             throw new HttpException('this url is not a valid input', HttpStatus.BAD_REQUEST)
+        }
+    }
+
+    async Statistics(data:DecodeUrlDto):Promise<StatsUrlResponseDto>{
+        if (data) {
+            const extracted_short = data.short_link.split('/')[data.short_link.length]
+            const urlData = await this.urlRepository.findOne({ where: { short_link: extracted_short } })
+            if (urlData) {
+                return toStatUrlResponseDto(urlData)
+            }
+            else {
+                throw new HttpException('does not exist', HttpStatus.NOT_FOUND)
+            }
+        }
+        else {
+            throw new HttpException('this short_url is not a valid input', HttpStatus.BAD_REQUEST)
         }
     }
 }
