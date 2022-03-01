@@ -58,16 +58,38 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+## Api Documentation
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## encodes url
+path 
+http://localhost:3000/encode
 
-## License
+body 
+{
+	"link":"https://google.com"
+}
 
-Nest is [MIT licensed](LICENSE).
+## decodes short url
+
+path 
+http://localhost:3000/decode
+
+body 
+{
+	"short_link": "http://localhost:3000/na4eoLIF3A"
+}
+
+## get statistic
+path 
+http://localhost:3000/stats/{param:short_url}
+
+param na4eoLIF3A
+
+## visits and redirect
+http://localhost:3000/na4eoLIF3A
+
+
+
+
