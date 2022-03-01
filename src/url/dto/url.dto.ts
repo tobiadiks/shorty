@@ -11,21 +11,19 @@ export class DecodeUrlDto {
 }
 
 //payload definition for decoded url object 
-export class DecodeUrlResponseDto {
-   link: string;
+export class DecodedUrlResponseDto {
+    link: string;
 }
 
 //payload definition for decoded url object 
-export class EncodeUrlResponseDto {
+export class EncodedUrlResponseDto {
     short_link: string;
 }
 //payload definition for returning url statistic
 export class StatsUrlResponseDto {
     id: string;
     link: string
-    decoded_link: string;
-    encoded_link: string;
-    short_link:string;
+    short_link: string;
     clicks: number;
     created_at: string;
     last_visited: string;

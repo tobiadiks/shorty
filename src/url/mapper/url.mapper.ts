@@ -1,19 +1,16 @@
-import { DecodeUrlResponseDto, EncodeUrlResponseDto, StatsUrlResponseDto } from "../dto/url.dto";
+import { DecodedUrlResponseDto, EncodedUrlResponseDto, StatsUrlResponseDto } from "../dto/url.dto";
+import { Url } from "../entity/url.entity";
 
 
-export const toStatUrlResponseDto = (data: StatsUrlResponseDto): StatsUrlResponseDto => {
+export const toStatUrlResponseDto = (data: Url): StatsUrlResponseDto => {
     const { id, link,
-        decoded_link,
         short_link,
-        encoded_link,
         clicks,
         created_at,
         last_visited,
     } = data;
     const statUrlResponseDto: StatsUrlResponseDto = {
         id, link,
-        decoded_link,
-        encoded_link,
         short_link,
         clicks,
         created_at,
@@ -23,22 +20,23 @@ export const toStatUrlResponseDto = (data: StatsUrlResponseDto): StatsUrlRespons
 };
 
 
-export const toDecodeUrlResponseDto = (data: DecodeUrlResponseDto): DecodeUrlResponseDto => {
+export const toDecodeUrlResponseDto = (data: Url): DecodedUrlResponseDto => {
     const {
-        decoded_link,
+        link
     } = data;
-    const decodeUrlResponseDto: DecodeUrlResponseDto = {
-        decoded_link,
+
+    const decodeUrlResponseDto: DecodedUrlResponseDto = {
+        link,
     };
     return decodeUrlResponseDto;
 };
 
-export const toEncodeUrlResponseDto = (data: EncodeUrlResponseDto): EncodeUrlResponseDto => {
+export const toEncodeUrlResponseDto = (data: Url): EncodedUrlResponseDto => {
     const {
-        encoded_link,
+        short_link,
     } = data;
-    const encodeUrlResponseDto: EncodeUrlResponseDto = {
-        encoded_link,
+    const encodeUrlResponseDto: EncodedUrlResponseDto = {
+        short_link,
     };
     return encodeUrlResponseDto;
 };

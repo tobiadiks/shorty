@@ -1,4 +1,6 @@
+import { encodeUrl } from "src/helper/urlEncoder";
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
 //database schema for URL object
 @Entity()
 export class Url {
@@ -9,18 +11,8 @@ export class Url {
     link: string;
 
     @Column()
-    short_link:string;
+    short_link: string;
 
-    @Column()
-    decoded_link: string;
-
-    @Column()
-    encoded_link: string;
-
-    //@Column()
-
-    // @Column()
-    // unique_visitors: number;
 
     @Column()
     clicks: number;
@@ -35,7 +27,7 @@ export class Url {
 
     @BeforeInsert() async beforeInserting() {
         this.clicks = 0;
-        this.short_link=encodeUrl();
-        // this.unique_visitors = 0;
+        this.short_link = encodeUrl();
+
     }
 }
